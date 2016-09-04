@@ -1,0 +1,30 @@
+{
+  "name": "ng-arise",
+  "prettyName": "ngArise",
+  "homepage": "https://github.com/rickerd/ngarise",
+  "authors": [
+    {
+      "name": "Rick de Graaff",
+      "email": "info@rickdegraaff.nl"
+    }
+  ],
+  "description": "Simple AngularJS loader",
+  "main": "dist/unminified/ng-arise.js",
+  "keywords": [
+    "Arise",
+    "AngularJS",
+    "loader",
+    "load",
+    "screen",
+    "loading",
+    "wait"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": ">=1.5.0"
+  }
+}
