@@ -24,9 +24,7 @@ var config = {
             unminified: 'dist/unminified/'
         }
     },
-    scripts: [
-        'src/*.js'
-    ],
+    scripts: 'src/',
     scss: 'src/scss/',
     banners: {
         unminified: '/*!\n' +
@@ -45,8 +43,8 @@ var config = {
 // JavaScript
 // =============
 
-gulp.task('compile-scripts', function () {
-    return gulp.src(config.scripts)
+gulp.task('scripts', function () {
+    return gulp.src([config.scripts + '**/*.js'])
         .pipe(concat('ng-arise.js', {
             separator: '\n\n',
             process: function (src) {
@@ -103,17 +101,25 @@ gulp.task('dist:css', ['dist:css:clean', 'styles'], function () {
         .pipe(gulp.dest(config.paths.output.minified));
 });
 
+// Watches
+// =============
+// Watches
+gulp.task('watch', function () {
+    gulp.watch(config.scss + '/**/*.scss', ['styles']);
+    gulp.watch([config.scripts + '/**/*.js'], ['scripts']);
+});
+
 // User commands
 // =============
 
 // Code linter
 gulp.task('lint', function () {
-    return gulp.src(config.scripts)
+    return gulp.src([config.scripts + '**/*.js'])
         .pipe(jshint('.jshintrc', '.jshintignore'))
         .pipe(jshint.reporter(jshintStylish))
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('default', ['compile-scripts', 'styles']);
+gulp.task('default', ['lint', 'scripts', 'styles']);
 
 gulp.task('build', ['dist:js', 'dist:css']);
