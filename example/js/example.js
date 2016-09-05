@@ -2,11 +2,14 @@
 
 angular.module('appExample', ['ngArise'])
 
-    .controller('appController', ['$timeout', 'Arise', function ($timeout, Arise) {
-        var self = this;
+    .controller('appController', ['$timeout', '$interval', 'Arise', function ($timeout, $interval, Arise) {
+        var self = this,
+            i = 5;
         this.appName = 'ngArise Example';
-
-        this.textToDisappear = 'The loader will disappear in 5 seconds';
+        this.timeToDisappear = 5;
+        $interval(function () {
+            self.timeToDisappear = self.timeToDisappear-1;
+        }, 1000, 5);
 
         $timeout(function () {
             Arise.show();
