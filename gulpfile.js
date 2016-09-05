@@ -8,12 +8,13 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     clean = require('gulp-rimraf'),
     concat = require('gulp-concat-util'),
+    ngTemplates = require('gulp-ng-templates'),
     pkg = require('./package.json'),
     jshint = require('gulp-jshint'),
     jshintStylish = require('jshint-stylish'),
 
-    compass      = require('gulp-compass'),
-    cleanCSS    = require('gulp-clean-css');
+    compass = require('gulp-compass'),
+    cleanCSS = require('gulp-clean-css');
 
 var today = new Date();
 
@@ -42,6 +43,14 @@ var config = {
 
 // JavaScript
 // =============
+gulp.task('templates', function () {
+    return gulp.src(config.scripts + '**/*.html')
+        .pipe(ngTemplates({
+            filename: 'ng-arise-templates.min.js',
+            module: 'ngAriseTemplates'
+        }))
+        .pipe(gulp.dest(config.scripts + 'tmp'));
+});
 
 gulp.task('scripts', function () {
     return gulp.src([config.scripts + '**/*.js'])
@@ -77,7 +86,6 @@ gulp.task('dist:js', ['dist:js:clean'], function () {
 
 // SCSS/CSS
 // =============
-
 gulp.task('styles', function () {
     return gulp.src(config.scss + 'ng-arise.scss')
         .pipe(compass({
@@ -103,10 +111,10 @@ gulp.task('dist:css', ['dist:css:clean', 'styles'], function () {
 
 // Watches
 // =============
-// Watches
 gulp.task('watch', function () {
     gulp.watch(config.scss + '/**/*.scss', ['styles']);
     gulp.watch([config.scripts + '/**/*.js'], ['scripts']);
+    gulp.watch([config.scripts + '/**/*.html'], ['templates']);
 });
 
 // User commands
@@ -120,6 +128,6 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('default', ['lint', 'scripts', 'styles']);
+gulp.task('default', ['lint', 'templates', 'scripts', 'styles']);
 
-gulp.task('build', ['dist:js', 'dist:css']);
+gulp.task('build', ['templates', 'dist:js', 'dist:css']);

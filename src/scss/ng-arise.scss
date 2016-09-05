@@ -1,10 +1,9 @@
-$color1: #1db896;
-$color2: #fff;
-$color3: #616161;
-$color4: #d4d4d4;
-$color5: #464646;
+$load-width: 400px;
+$load-height: 100px;
+$arise-animation-speed: 1000ms;
+$dot-size: 10px;
 
-#overlay {
+#arise-overlay {
   position: fixed;
   z-index: 999999;
   width: 100%;
@@ -13,36 +12,77 @@ $color5: #464646;
   top: 0;
   bottom: 0;
   right: 0;
-  background: #000;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  background: coral linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
 }
 
-#loading {
-  $load-width: 800px;
-  $load-height: 200px;
-
-  width: $load-width;
-  height: $load-height;
-  margin-top: -($load-height / 2);
-  margin-left: -($load-width / 2);
-  padding-top: 10px;
-  text-align: center;
-  background: #fff;
-  border-radius: 4px;
-
-  .title {
-    font-size: 4em;
-    color: $color1;
-  }
-
-  p {
-    font-size: 2rem;
-    color: $color5;
-  }
-
+#arise {
   position: fixed;
-  z-index: 9999999;
   top: 50%;
   left: 50%;
+  z-index: 9999999;
+
+  margin-top: -($load-height * 2);
+  margin-left: -($load-width / 2);
+
+  .arise-content {
+    padding: 20px 107px;
+    background: #fff;
+    border-radius: 100px;
+    text-align: center;
+
+    .title {
+      text-transform: uppercase;
+      font-size: 2em;
+      color: #fba283;
+    }
+
+    p {
+      font-size: 1em;
+      color: #464646;
+      margin-bottom: 0;
+    }
+  }
+
+  .arise-dots {
+    width: 15%;
+    height: 20px;
+    margin: 20px auto 0;
+  }
+}
+
+@mixin arise-animation($delay: 0ms) {
+  animation: fx $arise-animation-speed ease infinite $delay;
+}
+
+.arise-dot {
+  width: $dot-size;
+  height: $dot-size;
+  border: ($dot-size / 5) solid white;
+  border-radius: 50%;
+  float: left;
+  margin: 0 ($dot-size / 2);
+  transform: scale(0);
+
+  @include arise-animation();
+
+  &:nth-of-type(2) {
+    @include arise-animation($arise-animation-speed * 0.3);
+  }
+
+  &:nth-of-type(3) {
+    @include arise-animation($arise-animation-speed * 0.6);
+  }
+}
+
+@keyframes fx {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
