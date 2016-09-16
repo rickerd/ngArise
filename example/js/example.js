@@ -32,7 +32,7 @@ angular.module('appExample', ['ngArise'])
         this.buttonEnabled = false;
 
         showArise();
-        // hideArise();
+        hideArise();
         startInterval();
 
         this.reset = function () {
