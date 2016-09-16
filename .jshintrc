@@ -16,6 +16,8 @@
   "globals": {
     "require": true,
     "arise": true,
-    "angular": true
+    "angular": true,
+    "console": true,
+    "$get": true
   }
 }

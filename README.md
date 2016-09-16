@@ -9,21 +9,52 @@
 [Download ngArise](https://github.com/rickerd/ngarise/archive/master.zip) files from GitHub
 
 #### Bower
-	bower install ngArise
-
-#### NPM
-	npm install ngArise
+```bash
+bower install ngArise --save
+```
 
 ## How to Use
 
-``` javascript
-angular.module('app', ['ngArise'])
-.controller(function(Arise) {
+Add the dependency ngArise
+```javascript
+angular.module('app', ['ngArise']);
+```
+
+Add provider to make configurations (optional)
+```javascript
+.config(['ariseProvider', function (ariseProvider) {
+    ariseProvider.setOptions(
+        {
+            title: 'Custom title'
+            message: 'Here a message',
+            templateUrl: 'path/to/views/message.html'
+        }
+    );
+}]);
+```
+
+Inject Arise service to show / hide
+```javascript
+.controller(['Arise', function(Arise) {
     Arise.show();
-    // or
+    // and / or
     Arise.hide();
-});
+}]);
 ```
+
+Place directive in html
 ``` html
-<ng-arise data-title="{{loader.title}}" data-message="{{loader.message}}"></ng-arise>
+<ng-arise></ng-arise>
 ```
+
+## Provider API
+
+Options can be passed to configuration provider globally
+
+The options list:
+
+|       Option      |                 Type                |         Default value          |                   Description                           |
+| ----------------- | ----------------------------------- | ------------------------------ | ------------------------------------------------------- |
+| title             | String                              | "Please wait"                  | Message that is shown as H2 in default template         |
+| message           | String                              | "We're loading data"           | String that is shown as a paragraph in default template |
+| templateUrl       | String                              | "views/default.html"           | Specify which template should be loaded                 |

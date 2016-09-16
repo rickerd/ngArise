@@ -1,3 +1,3 @@
 'use strict';
 
-var arise = angular.module('ngArise', []);
+var arise = angular.module('ngArise', ['ngAriseTemplates']);

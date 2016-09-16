@@ -1,5 +1,5 @@
-/* line 7, ../../src/scss/ng-arise.scss */
-#overlay {
+/* line 6, ../../src/scss/ng-arise.scss */
+#arise-overlay {
   position: fixed;
   z-index: 999999;
   width: 100%;
@@ -8,33 +8,72 @@
   top: 0;
   bottom: 0;
   right: 0;
-  background: #000;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  background: coral linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
 }
 
-/* line 21, ../../src/scss/ng-arise.scss */
-#loading {
-  width: 800px;
-  height: 200px;
-  margin-top: -100px;
-  margin-left: -400px;
-  padding-top: 10px;
-  text-align: center;
-  background: #fff;
-  border-radius: 4px;
+/* line 20, ../../src/scss/ng-arise.scss */
+#arise {
   position: fixed;
-  z-index: 9999999;
   top: 50%;
   left: 50%;
+  z-index: 9999999;
+  margin-top: -200px;
+  margin-left: -200px;
 }
-/* line 34, ../../src/scss/ng-arise.scss */
-#loading .title {
-  font-size: 4em;
-  color: #1db896;
+/* line 29, ../../src/scss/ng-arise.scss */
+#arise .arise-content {
+  padding: 20px 107px;
+  background: #fff;
+  border-radius: 100px;
+  text-align: center;
 }
-/* line 39, ../../src/scss/ng-arise.scss */
-#loading p {
-  font-size: 2rem;
+/* line 35, ../../src/scss/ng-arise.scss */
+#arise .arise-content .title {
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #fba283;
+}
+/* line 41, ../../src/scss/ng-arise.scss */
+#arise .arise-content p {
+  font-size: 1em;
   color: #464646;
+  margin-bottom: 0;
+}
+/* line 48, ../../src/scss/ng-arise.scss */
+#arise .arise-dots {
+  width: 16%;
+  height: 20px;
+  margin: 20px auto 0;
+}
+
+/* line 59, ../../src/scss/ng-arise.scss */
+.arise-dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  float: left;
+  margin: 0 5px;
+  transform: scale(0);
+  animation: fx 1000ms ease infinite 0ms;
+}
+/* line 70, ../../src/scss/ng-arise.scss */
+.arise-dot:nth-of-type(2) {
+  animation: fx 1000ms ease infinite 300ms;
+}
+/* line 74, ../../src/scss/ng-arise.scss */
+.arise-dot:nth-of-type(3) {
+  animation: fx 1000ms ease infinite 600ms;
+}
+
+@keyframes fx {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

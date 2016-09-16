@@ -6,9 +6,10 @@
     <title>ngArise - Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../dist/minified/ng-arise.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../dist/unminified/ng-arise.css">
     <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -21,13 +22,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12">
-            <p class="text-center ng-cloak">The loader will disappear in {{main.timeToDisappear}} seconds</p>
+        <div class="col-lg-12 text-center">
+            <p class=" ng-cloak" data-ng-if="!main.buttonEnabled">The loader will disappear in
+                {{main.timeToDisappear}} seconds</p>
+            <button class="btn btn-info btn-sm" data-ng-if="main.buttonEnabled" data-ng-click="main.reset()">
+                <span class="glyphicon glyphicon-repeat ng-cloak" aria-hidden="true"></span>
+                Do it again
+            </button>
         </div>
     </div>
 </div>
 
-<script src="js/angular.1.5.8.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
 <script src="../dist/unminified/ng-arise.js"></script>
 <script src="js/example.js"></script>
 </body>
