@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/rickerd/ngArise.svg?branch=master)](https://travis-ci.org/rickerd/ngArise)
 [![GitHub release](https://img.shields.io/github/release/rickerd/ngarise.svg)](https://github.com/rickerd/ngArise)
 
+## Demo
+Visit the [Github page](https://rickerd.github.io/ngArise) for a demo
 
 ## Installing
 
