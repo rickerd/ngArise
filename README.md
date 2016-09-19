@@ -44,9 +44,11 @@ Inject Arise service to show / hide
 }]);
 ```
 
-Place directive in html
+Place directive in html as element or attribute
 ``` html
 <ng-arise></ng-arise>
+<!-- or -->
+<div ng-arise></div>
 ```
 
 ## Provider API

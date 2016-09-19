@@ -27,7 +27,7 @@ arise
     })
     .directive('ngArise', ['$templateCache', 'arise', function ($templateCache, arise) {
         return {
-            restrict: 'E',
+            restrict: 'EA',
             scope: {},
             link: function (scope, attr) {
                 scope.$on('arise-loading', function (event, data) {

@@ -1,11 +1,11 @@
 /*!
- * arise v0.0.2
+ * arise v0.0.3
  * https://rickerd.github.io/ngArise/
  *
  * Copyright (c) 2016 Rick de Graaff
  * License: MIT
  *
- * Generated at Friday, September 16th, 2016, 10:10:54 PM
+ * Generated at Monday, September 19th, 2016, 2:56:58 PM
  */
 (function() {
 'use strict';
@@ -40,7 +40,7 @@ arise
     })
     .directive('ngArise', ['$templateCache', 'arise', function ($templateCache, arise) {
         return {
-            restrict: 'E',
+            restrict: 'EA',
             scope: {},
             link: function (scope, attr) {
                 scope.$on('arise-loading', function (event, data) {
@@ -62,6 +62,7 @@ arise
             }
         };
     }]);
+
 
 angular.module("ngAriseTemplates", []).run(["$templateCache", function($templateCache) {$templateCache.put("views/default.html","<div id=\"arise-overlay\"></div>\n<div id=\"arise\" class=\"animated fadeInUp ng-cloak\">\n    <div class=\"arise-content\">\n        <h2 class=\"title\">{{title}}</h2>\n        <p>{{message}}</p>\n    </div>\n    <div class=\"arise-dots\">\n        <div class=\"arise-dot\"></div>\n        <div class=\"arise-dot\"></div>\n        <div class=\"arise-dot\"></div>\n    </div>\n</div>");}]);
 }());
