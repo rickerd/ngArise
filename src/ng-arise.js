@@ -39,10 +39,12 @@ arise
             template: '<div data-ng-if="loading">' + $templateCache.get(arise.options.templateUrl) + '</div>'
         };
     }])
-    .factory('Arise', ['$rootScope', function ($rootScope) {
+    .factory('Arise', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
         return {
             show: function () {
-                $rootScope.$broadcast('arise-loading', {open: true});
+                $timeout(function () {
+                    $rootScope.$broadcast('arise-loading', {open: true});
+                }, 1);
             },
             hide: function () {
                 $rootScope.$broadcast('arise-loading', {open: false});

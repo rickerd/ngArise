@@ -1,11 +1,11 @@
 /*!
- * arise v0.0.3
+ * arise v0.0.4
  * https://rickerd.github.io/ngArise/
  *
  * Copyright (c) 2016 Rick de Graaff
  * License: MIT
  *
- * Generated at Monday, September 19th, 2016, 2:56:58 PM
+ * Generated at Tuesday, September 20th, 2016, 11:36:49 AM
  */
 (function() {
 'use strict';
@@ -52,10 +52,12 @@ arise
             template: '<div data-ng-if="loading">' + $templateCache.get(arise.options.templateUrl) + '</div>'
         };
     }])
-    .factory('Arise', ['$rootScope', function ($rootScope) {
+    .factory('Arise', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
         return {
             show: function () {
-                $rootScope.$broadcast('arise-loading', {open: true});
+                $timeout(function () {
+                    $rootScope.$broadcast('arise-loading', {open: true});
+                }, 1);
             },
             hide: function () {
                 $rootScope.$broadcast('arise-loading', {open: false});
@@ -64,5 +66,5 @@ arise
     }]);
 
 
-angular.module("ngAriseTemplates", []).run(["$templateCache", function($templateCache) {$templateCache.put("views/default.html","<div id=\"arise-overlay\"></div>\n<div id=\"arise\" class=\"animated fadeInUp ng-cloak\">\n    <div class=\"arise-content\">\n        <h2 class=\"title\">{{title}}</h2>\n        <p>{{message}}</p>\n    </div>\n    <div class=\"arise-dots\">\n        <div class=\"arise-dot\"></div>\n        <div class=\"arise-dot\"></div>\n        <div class=\"arise-dot\"></div>\n    </div>\n</div>");}]);
+
 }());
