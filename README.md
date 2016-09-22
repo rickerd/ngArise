@@ -62,3 +62,27 @@ The options list:
 | title             | String                              | "Please wait"                  | Message that is shown as H2 in default template         |
 | message           | String                              | "We're loading data"           | String that is shown as a paragraph in default template |
 | templateUrl       | String                              | "views/default.html"           | Specify which template should be loaded                 |
+
+## Factory API
+
+Calling the factory Arise to show or hide the loading box an option object can be passed to it.
+
+```javascript
+.controller(['Arise', function(Arise) {
+    Arise.show({
+        title: 'Changed title on the fly',
+        message: 'Message can eb changed too'
+    });
+    // and / or
+    Arise.hide();
+}]);
+```
+
+*Note: Arise.hide() will reset the values to the standard provided provider settings*
+
+The options list:
+
+|       Option      |                 Type                |             Optional           |                   Description                           |
+| ----------------- | ----------------------------------- | ------------------------------ | ------------------------------------------------------- |
+| title             | String                              | true                           | Message that is shown as H2 in default template         |
+| message           | String                              | true                           | String that is shown as a paragraph in default template |
