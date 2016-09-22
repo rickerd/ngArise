@@ -30,8 +30,30 @@ arise
             restrict: 'EA',
             scope: {},
             link: function (scope, attr) {
+                var requestForOpen = 0;
+
                 scope.$on('arise-loading', function (event, data) {
-                    scope.loading = data.open;
+
+                    if (0 === requestForOpen) {
+                        scope.loading = data.open;
+                    }
+
+                    if (true === data.open) {
+                        requestForOpen = (requestForOpen + 1);
+                    }
+
+                    if (false === data.open) {
+                        requestForOpen = (requestForOpen - 1);
+                    }
+
+                    if (requestForOpen === 0 && false === data.open) {
+                        scope.loading = false;
+                        scope.title = arise.options.title;
+                        scope.message = arise.options.message;
+                    }
+                });
+
+                scope.$on('arise-change', function (event, data) {
 
                     if (!angular.isUndefined(data.title)) {
                         scope.title = data.title;
@@ -39,6 +61,11 @@ arise
                     if (!angular.isUndefined(data.message)) {
                         scope.message = data.message;
                     }
+                });
+
+                scope.$on('arise-destroy', function () {
+                    requestForOpen = 0;
+                    scope.loading = false;
                 });
 
                 scope.title = angular.isUndefined(attr.title) ? arise.options.title : attr.title;
@@ -49,13 +76,13 @@ arise
     }])
     .factory('Arise', ['$rootScope', '$timeout', 'arise', function ($rootScope, $timeout, arise) {
         return {
-            show: function (obj) {
-                if (angular.isUndefined(obj)) {
-                    obj = {};
+            show: function (options) {
+                if (angular.isUndefined(options)) {
+                    options = {};
                 }
 
                 $timeout(function () {
-                    $rootScope.$broadcast('arise-loading', angular.extend({}, obj, {open: true}));
+                    $rootScope.$broadcast('arise-loading', angular.extend({}, options, {open: true}));
                 }, 1);
             },
             hide: function () {
@@ -64,6 +91,19 @@ arise
                     title: arise.options.title,
                     message: arise.options.message
                 });
+            },
+            change: function (options) {
+                if (!angular.isObject(options)) {
+                    throw new Error('The options should be an object');
+                }
+
+                $rootScope.$broadcast('arise-change', {
+                    title: options.title,
+                    message: options.message
+                });
+            },
+            destroy: function () {
+                $rootScope.$broadcast('arise-destroy');
             }
         };
     }]);

@@ -35,14 +35,18 @@ Add provider to make configurations (optional)
 }]);
 ```
 
-Inject Arise service to show / hide
+Inject Arise service to show / hide or destroy
 ```javascript
 .controller(['Arise', function(Arise) {
     Arise.show();
     // and / or
     Arise.hide();
+    // and / or
+    Arise.destroy();
 }]);
 ```
+
+*Note: Arise.destroy() will remove the complete directive since multiple Arises can occur*
 
 Place directive in html as element or attribute
 ``` html
@@ -77,6 +81,15 @@ Calling the factory Arise to show or hide the loading box an option object can b
     Arise.hide();
 }]);
 ```
+
+The functions list:
+
+|       Option      |                 Type                |             Parameter            |
+| ----------------- | ----------------------------------- | -------------------------------- |
+| show              | function                            | Object | title, message          |
+| hide              | function                            |                                  |
+| change            | function                            | Object | title, message          |
+| destroy           | function                            |                                  |
 
 *Note: Arise.hide() will reset the values to the standard provided provider settings*
 

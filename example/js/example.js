@@ -9,9 +9,14 @@ angular.module('appExample', ['ngArise'])
         var self = this;
 
         var showArise = function () {
+            Arise.show();
+
             $timeout(function () {
-                Arise.show();
-            }, 200);
+                Arise.change({
+                    title: '!! Hold on !!',
+                    message: 'Still counting down'
+                });
+            }, 3000);
         };
 
         var hideArise = function () {
