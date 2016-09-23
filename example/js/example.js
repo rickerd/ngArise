@@ -3,6 +3,7 @@
 angular.module('appExample', ['ngArise'])
     .config(['ariseProvider', function (ariseProvider) {
         ariseProvider.setOptions({message: 'counting down'});
+        ariseProvider.setDebug(true);
     }])
 
     .controller('appController', ['$interval', '$timeout', 'Arise', function ($interval, $timeout, Arise) {
@@ -16,7 +17,14 @@ angular.module('appExample', ['ngArise'])
                     title: '!! Hold on !!',
                     message: 'Still counting down'
                 });
-            }, 3000);
+            }, 1500);
+
+            $timeout(function () {
+                Arise.change({
+                    title: 'Debug messages?',
+                    message: 'Open the console for debug messages'
+                });
+            }, 3500);
         };
 
         var hideArise = function () {

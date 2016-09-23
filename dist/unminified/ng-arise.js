@@ -1,11 +1,11 @@
 /*!
- * arise v0.0.6
+ * arise v0.0.7
  * https://rickerd.github.io/ngArise/
  *
  * Copyright (c) 2016 Rick de Graaff
  * License: MIT
  *
- * Generated at Thursday, September 22nd, 2016, 4:18:10 PM
+ * Generated at Friday, September 23rd, 2016, 10:57:15 AM
  */
 (function() {
 'use strict';
@@ -21,11 +21,19 @@ arise
             templateUrl: 'views/default.html'
         };
 
+        this.debug = false;
+
         this.setOptions = function (options) {
             if (!angular.isObject(options)) {
                 throw new Error('The options should be an object');
             }
             this.options = angular.extend({}, this.options, options);
+        };
+
+        this.setDebug = function (boolean) {
+            if (!angular.isUndefined(boolean)) {
+                this.debug = boolean;
+            }
         };
 
         this.$get = function ($http, $templateCache) {
@@ -45,25 +53,41 @@ arise
             link: function (scope, attr) {
                 var requestForOpen = 0;
 
+                var debugMessage = function (message) {
+                    if (true === arise.debug) {
+                        console.log(message);
+                    }
+                };
+
                 scope.$on('arise-loading', function (event, data) {
 
+                    debugMessage(' ');
+                    debugMessage('Start - RequestOpen: ' + requestForOpen);
+
                     if (0 === requestForOpen) {
+                        debugMessage('loading.' + data.open);
                         scope.loading = data.open;
                     }
 
                     if (true === data.open) {
                         requestForOpen = (requestForOpen + 1);
+                        debugMessage('Adding 1');
                     }
 
                     if (false === data.open) {
                         requestForOpen = (requestForOpen - 1);
+                        debugMessage('Removing 1');
                     }
 
-                    if (requestForOpen === 0 && false === data.open) {
+                    if (0 === requestForOpen && false === data.open) {
+                        debugMessage('Resetting completely');
                         scope.loading = false;
                         scope.title = arise.options.title;
                         scope.message = arise.options.message;
                     }
+
+                    debugMessage('End - RequestOpen: ' + requestForOpen);
+                    debugMessage(' ');
                 });
 
                 scope.$on('arise-change', function (event, data) {

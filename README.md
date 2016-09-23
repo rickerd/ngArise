@@ -32,6 +32,8 @@ Add provider to make configurations (optional)
             templateUrl: 'path/to/views/message.html'
         }
     );
+    
+    ariseProvider.setDebug(true); // default is false
 }]);
 ```
 
