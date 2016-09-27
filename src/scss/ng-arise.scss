@@ -24,13 +24,14 @@ $dot-size: 10px;
   z-index: 9999999;
 
   margin-top: -($load-height * 2);
-  margin-left: -($load-width / 2);
+  margin-left: -($load-width / 2) + 100;
 
   .arise-content {
     padding: 20px 107px;
     background: #fff;
     border-radius: 100px;
     text-align: center;
+    width: 640px;
 
     .title {
       margin: 0;
