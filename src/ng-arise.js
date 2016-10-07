@@ -62,8 +62,10 @@ arise
                     }
 
                     if (false === data.open) {
-                        requestForOpen = (requestForOpen - 1);
-                        debugMessage('Removing 1');
+                        if(requestForOpen > 0) {
+			   requestForOpen = (requestForOpen - 1);
+                       	   debugMessage('Removing 1');
+			}
                     }
 
                     if (0 === requestForOpen && false === data.open) {

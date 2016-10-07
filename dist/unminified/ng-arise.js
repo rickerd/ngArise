@@ -1,11 +1,11 @@
 /*!
- * arise v0.0.7
+ * arise v0.0.8
  * https://rickerd.github.io/ngArise/
  *
  * Copyright (c) 2016 Rick de Graaff
  * License: MIT
  *
- * Generated at Friday, September 23rd, 2016, 10:57:15 AM
+ * Generated at Friday, October 7th, 2016, 4:07:30 PM
  */
 (function() {
 'use strict';
@@ -75,8 +75,10 @@ arise
                     }
 
                     if (false === data.open) {
-                        requestForOpen = (requestForOpen - 1);
-                        debugMessage('Removing 1');
+                        if(requestForOpen > 0) {
+			   requestForOpen = (requestForOpen - 1);
+                       	   debugMessage('Removing 1');
+			}
                     }
 
                     if (0 === requestForOpen && false === data.open) {
