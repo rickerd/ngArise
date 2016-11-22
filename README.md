@@ -27,7 +27,7 @@ Add provider to make configurations (optional)
 .config(['ariseProvider', function (ariseProvider) {
     ariseProvider.setOptions(
         {
-            title: 'Custom title'
+            title: 'Custom title',
             message: 'Here a message',
             templateUrl: 'path/to/views/message.html'
         }
