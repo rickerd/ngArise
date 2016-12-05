@@ -4,8 +4,8 @@
     "name": "Rick de Graaff",
     "email": "info@rickdegraaff.nl"
   },
-  "name": "ngArise",
-  "prettyName": "ngArise",
+  "name": "ngarise",
+  "prettyName": "ngarise",
   "description": "Simple AngularJS loader",
   "main": "dist/unminified/ngarise.js",
   "license": "MIT",
