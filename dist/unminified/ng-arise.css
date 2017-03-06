@@ -16,41 +16,44 @@
 /* line 20, ../../src/scss/ng-arise.scss */
 #arise {
   position: fixed;
+  top: 30%;
+  left: 50%;
+  z-index: 9999998;
+}
+/* line 26, ../../src/scss/ng-arise.scss */
+#arise .arise-content {
+  z-index: 9999999;
+  position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 9999999;
-  margin-top: -200px;
-  margin-left: -100px;
-}
-/* line 29, ../../src/scss/ng-arise.scss */
-#arise .arise-content {
+  transform: translate(-50%, -50%);
   padding: 20px 107px;
   background: #fff;
   border-radius: 100px;
   text-align: center;
   width: 640px;
 }
-/* line 36, ../../src/scss/ng-arise.scss */
+/* line 39, ../../src/scss/ng-arise.scss */
 #arise .arise-content .title {
   margin: 0;
   text-transform: uppercase;
   font-size: 2em;
   color: #fba283;
 }
-/* line 43, ../../src/scss/ng-arise.scss */
+/* line 46, ../../src/scss/ng-arise.scss */
 #arise .arise-content p {
   font-size: 1em;
   color: #464646;
   margin-bottom: 0;
 }
-/* line 50, ../../src/scss/ng-arise.scss */
+/* line 53, ../../src/scss/ng-arise.scss */
 #arise .arise-dots {
   width: 16%;
   height: 20px;
   margin: 20px auto 0;
 }
 
-/* line 61, ../../src/scss/ng-arise.scss */
+/* line 64, ../../src/scss/ng-arise.scss */
 .arise-dot {
   width: 10px;
   height: 10px;
@@ -61,11 +64,11 @@
   transform: scale(0);
   animation: fx 1000ms ease infinite 0ms;
 }
-/* line 72, ../../src/scss/ng-arise.scss */
+/* line 75, ../../src/scss/ng-arise.scss */
 .arise-dot:nth-of-type(2) {
   animation: fx 1000ms ease infinite 300ms;
 }
-/* line 76, ../../src/scss/ng-arise.scss */
+/* line 79, ../../src/scss/ng-arise.scss */
 .arise-dot:nth-of-type(3) {
   animation: fx 1000ms ease infinite 600ms;
 }

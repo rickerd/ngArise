@@ -53,7 +53,7 @@ gulp.task('templates', function () {
 });
 
 gulp.task('scripts', function () {
-    return gulp.src([config.scripts + '**/*.js'])
+    return gulp.src([config.scripts + '**/*.js', '!' + config.scripts + '**/*_test.js'])
         .pipe(concat('ng-arise.js', {
             separator: '\n\n',
             process: function (src) {

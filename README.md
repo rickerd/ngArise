@@ -10,6 +10,16 @@ Visit the [Github page](https://rickerd.github.io/ngArise) for a demo
 #### Download directly
 [Download ngArise](https://github.com/rickerd/ngarise/archive/master.zip) files from GitHub
 
+#### Yarn
+```bash
+yarn add ngArise --save
+```
+
+#### NPM
+```bash
+npm install ngArise --save
+```
+
 #### Bower
 ```bash
 bower install ngArise --save
@@ -48,7 +58,7 @@ Inject Arise service to show / hide or destroy
 }]);
 ```
 
-*Note: Arise.destroy() will remove the complete directive since multiple Arises can occur*
+*Note: Arise.destroy() will remove all the Arises (put count on 0 and loading false) since multiple Arises can occur*
 
 Place directive in html as element or attribute
 ``` html
@@ -77,7 +87,7 @@ Calling the factory Arise to show or hide the loading box an option object can b
 .controller(['Arise', function(Arise) {
     Arise.show({
         title: 'Changed title on the fly',
-        message: 'Message can eb changed too'
+        message: 'Message can be changed too'
     });
     // and / or
     Arise.hide();

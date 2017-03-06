@@ -19,14 +19,17 @@ $dot-size: 10px;
 
 #arise {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
-  z-index: 9999999;
-
-  margin-top: -($load-height * 2);
-  margin-left: -($load-width / 2) + 100;
+  z-index: 9999998;
 
   .arise-content {
+    z-index: 9999999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     padding: 20px 107px;
     background: #fff;
     border-radius: 100px;

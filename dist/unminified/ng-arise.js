@@ -1,19 +1,18 @@
 /*!
- * arise v0.0.9
+ * ngarise v0.1.0
  * https://rickerd.github.io/ngArise/
  *
- * Copyright (c) 2016 Rick de Graaff
+ * Copyright (c) 2017 Rick de Graaff
  * License: MIT
  *
- * Generated at Thursday, October 13th, 2016, 12:02:46 PM
+ * Generated at Monday, March 6th, 2017, 11:46:53 PM
  */
 (function() {
 'use strict';
 
-var arise = angular.module('ngArise', ['ngAriseTemplates']);
+var OBJECTERROR = 'The options should be an object';
 
-
-arise
+angular.module('ngArise', ['ngAriseTemplates'])
     .provider('arise', function () {
         this.options = {
             title: 'Please wait',
@@ -25,7 +24,7 @@ arise
 
         this.setOptions = function (options) {
             if (!angular.isObject(options)) {
-                throw new Error('The options should be an object');
+                throw new Error(OBJECTERROR);
             }
             this.options = angular.extend({}, this.options, options);
         };
@@ -135,7 +134,7 @@ arise
             },
             change: function (options) {
                 if (!angular.isObject(options)) {
-                    throw new Error('The options should be an object');
+                    throw new Error(OBJECTERROR);
                 }
 
                 $rootScope.$broadcast('arise-change', {
