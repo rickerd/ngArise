@@ -14,6 +14,9 @@
     "type": "git",
     "url": "https://github.com/rickerd/ngarise"
   },
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start karma.conf.js --single-run"
+  },
   "dependencies": {
     "angular": ">=1.5.0"
   },
@@ -32,6 +35,18 @@
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^2.2.19",
     "jshint": "^2.9.3",
-    "jshint-stylish": "^0.2.0"
+    "jshint-stylish": "^0.2.0",
+
+    "angular-mocks": "~1.5.x",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^0.5.5",
+    "karma-html-reporter": "^0.2.7",
+    "karma-jasmine": "^0.3.8",
+    "karma-ng-html2js-preprocessor": "^0.2.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-polyfill": "0.0.2",
+    "phantomjs-prebuilt": "^2.1.7"
   }
 }

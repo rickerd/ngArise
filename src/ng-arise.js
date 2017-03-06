@@ -1,4 +1,5 @@
 'use strict';
+var OBJECTERROR = 'The options should be an object';
 
 angular.module('ngArise', ['ngAriseTemplates'])
     .provider('arise', function () {
@@ -12,7 +13,7 @@ angular.module('ngArise', ['ngAriseTemplates'])
 
         this.setOptions = function (options) {
             if (!angular.isObject(options)) {
-                throw new Error('The options should be an object');
+                throw new Error(OBJECTERROR);
             }
             this.options = angular.extend({}, this.options, options);
         };
@@ -122,7 +123,7 @@ angular.module('ngArise', ['ngAriseTemplates'])
             },
             change: function (options) {
                 if (!angular.isObject(options)) {
-                    throw new Error('The options should be an object');
+                    throw new Error(OBJECTERROR);
                 }
 
                 $rootScope.$broadcast('arise-change', {

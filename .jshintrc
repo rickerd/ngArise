@@ -18,6 +18,13 @@
     "arise": true,
     "angular": true,
     "console": true,
-    "$get": true
+    "$get": true,
+    "describe": true,
+    "module": true,
+    "beforeEach": true,
+    "inject": true,
+    "it": true,
+    "expect": true,
+    "spyOn": true
   }
 }
