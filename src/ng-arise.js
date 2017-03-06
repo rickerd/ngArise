@@ -1,6 +1,6 @@
 'use strict';
 
-arise
+angular.module('ngArise', ['ngAriseTemplates'])
     .provider('arise', function () {
         this.options = {
             title: 'Please wait',
