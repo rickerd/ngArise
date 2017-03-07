@@ -5,7 +5,7 @@
  * Copyright (c) 2017 Rick de Graaff
  * License: MIT
  *
- * Generated at Monday, March 6th, 2017, 11:46:53 PM
+ * Generated at Tuesday, March 7th, 2017, 1:19:37 PM
  */
 (function() {
 'use strict';
@@ -38,7 +38,9 @@ angular.module('ngArise', ['ngAriseTemplates'])
         this.$get = function ($http, $templateCache) {
             var options = this.options;
             $http.get(options.templateUrl, {cache: $templateCache})
-                .error(function () {
+                .then(function () {
+
+                }, function () {
                     throw new Error('Template (' + options.templateUrl + ') could not be loaded.');
                 });
 

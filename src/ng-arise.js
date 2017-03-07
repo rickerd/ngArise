@@ -27,7 +27,9 @@ angular.module('ngArise', ['ngAriseTemplates'])
         this.$get = function ($http, $templateCache) {
             var options = this.options;
             $http.get(options.templateUrl, {cache: $templateCache})
-                .error(function () {
+                .then(function () {
+
+                }, function () {
                     throw new Error('Template (' + options.templateUrl + ') could not be loaded.');
                 });
 

@@ -3,13 +3,13 @@
 
 module.exports = function (config) {
     config.set({
-        customLaunchers: {  
+        customLaunchers: {
             Chrome_travis_ci: {
                 base: 'Chrome',
                 flags: ['--no-sandbox']
             }
-        }
-        
+        },
+
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: './',
 
@@ -82,11 +82,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-       if(process.env.TRAVIS) {  
-          browsers = ['Chrome_travis_ci'],
-        } else {
-            browsers: ['Chrome'],
-        }
+        browsers: ['Chrome'],
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
