@@ -16,10 +16,10 @@ before_install:
 - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 - sudo dpkg -i google-chrome*.deb
 - if [[ `npm -v` != 4* ]]; then npm i -g npm@4; fi
+- rm google-chrome*.deb
 
 install:
   - npm install
   
 script:
   - gulp lint -v
-  - npm test
