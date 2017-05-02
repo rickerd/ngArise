@@ -5,7 +5,7 @@
  * Copyright (c) 2017 Rick de Graaff
  * License: MIT
  *
- * Generated at Tuesday, March 7th, 2017, 1:19:37 PM
+ * Generated at Tuesday, May 2nd, 2017, 4:03:11 PM
  */
 (function() {
 'use strict';
@@ -13,7 +13,7 @@
 var OBJECTERROR = 'The options should be an object';
 
 angular.module('ngArise', ['ngAriseTemplates'])
-    .provider('arise', function () {
+    .provider('arise', [function () {
         this.options = {
             title: 'Please wait',
             message: 'We\'re loading data',
@@ -35,7 +35,7 @@ angular.module('ngArise', ['ngAriseTemplates'])
             }
         };
 
-        this.$get = function ($http, $templateCache) {
+        this.$get = ['$http', '$templateCache', function ($http, $templateCache) {
             var options = this.options;
             $http.get(options.templateUrl, {cache: $templateCache})
                 .then(function () {
@@ -45,8 +45,8 @@ angular.module('ngArise', ['ngAriseTemplates'])
                 });
 
             return this;
-        };
-    })
+        }];
+    }])
     .directive('ngArise', ['$templateCache', 'arise', function ($templateCache, arise) {
         return {
             restrict: 'EA',
