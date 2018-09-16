@@ -2,10 +2,10 @@
  * ngarise v0.1.0
  * https://rickerd.github.io/ngArise/
  *
- * Copyright (c) 2017 Rick de Graaff
+ * Copyright (c) 2018 Rick de Graaff
  * License: MIT
  *
- * Generated at Tuesday, May 2nd, 2017, 4:03:11 PM
+ * Generated at Sunday, September 16th, 2018, 2:22:58 AM
  */
 (function() {
 'use strict';
